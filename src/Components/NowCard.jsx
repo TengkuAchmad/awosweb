@@ -33,7 +33,7 @@ const NowCard = (props) => {
         </Stack>
         <Stack direction="vertical" gap={1}>
           <div>
-            {props.data["Waktu_Server"].length > 17
+            {props.data["Waktu_Server"].length > 0
               ? props.data["Waktu_Server"].slice(0, 17)
               : props.data["Waktu_Server"]}
           </div>
