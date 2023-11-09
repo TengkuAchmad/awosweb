@@ -32,13 +32,11 @@ const NowCard = (props) => {
           <FaMapMarkerAlt />
         </Stack>
         <Stack direction="vertical" gap={1}>
-          <div>
-            {props.data["Waktu_Server"].length > 1
-              ? props.data["Waktu_Server"].slice(0, 17)
-              : props.data["Waktu_Server"]}
-          </div>
-          <div>Bandung, Indonesia</div>
-        </Stack>
+        <div>
+          {(props.data && props.data['Waktu_Server']) ? props.data['Waktu_Server'].slice(0, 17) : props.data['Waktu_Server']}
+        </div>
+        <div>Bandung, Indonesia</div>
+      </Stack>
       </Stack>
     </div>
   );
