@@ -13,7 +13,7 @@ const NowCard = (props) => {
             <h5>Now</h5>
           </div>
           <div>
-            <h1>{props.data['Suhu']}°C</h1>
+            <h1>{props.data["Suhu"]}°C</h1>
           </div>
           <div>
             <h6>Broken Clouds</h6>
@@ -32,7 +32,11 @@ const NowCard = (props) => {
           <FaMapMarkerAlt />
         </Stack>
         <Stack direction="vertical" gap={1}>
-          <div>{(props.data['Waktu_Server'])}</div>
+          <div>
+            {props.data["Waktu_Server"].length > 17
+              ? props.data["Waktu_Server"].slice(0, 17)
+              : props.data["Waktu_Server"]}
+          </div>
           <div>Bandung, Indonesia</div>
         </Stack>
       </Stack>
