@@ -17,7 +17,7 @@ const Dashboard = () => {
   // GET DATA FROM API
   const fetchDataAPI = () => {
     axios
-      .get("http://serverawos.pythonanywhere.com/DataSensor")
+      .get("https://serverawos.pythonanywhere.com/DataSensor")
       .then((response) => {
         setDataAPI(response.data[0])
       })
