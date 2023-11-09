@@ -3,7 +3,7 @@ import { React } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 
 // ASSETS IMPORT
-import Icon from "../Assets/Icon.png";
+import Icon from "../assets/Icon.png";
 import BtnLocation from "./BtnLocation";
 
 const Header = ({fetchDataAPI}) => {
