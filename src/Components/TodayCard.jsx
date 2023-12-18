@@ -29,13 +29,13 @@ const TodayCard = (props) => {
                 <div className="pe-4">
                   <Stack direction="vertical mx-auto" gap={0}>
                     <p className="font-grey">Soil Moisture</p>
-                    <h2>{props.data["Kelembapan_Tanah"]}</h2>
+                    <h2>{props.data["Kelembapan_Tanah"]} %RH</h2>
                   </Stack>
                 </div>
                 <div className="pe-4">
                   <Stack direction="vertical mx-auto" gap={0}>
                     <p className="font-grey">Soil Temp</p>
-                    <h2>{props.data["Suhu_Tanah"]}</h2>
+                    <h2>{props.data["Suhu_Tanah"]} °C</h2>
                   </Stack>
                 </div>
                 <div className="pe-4">
@@ -126,11 +126,12 @@ const TodayCard = (props) => {
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Humidity</div>
-              <Stack direction="horizontal" gap={5}>
+              <Stack direction="horizontal" gap={3}>
                 <div className="icon-forecast pe-5">
                   <FaTint />
                 </div>
-                <h2 className="mt-3 ps-5">{props.data["Kelembapan"]}%</h2>
+                <h2 className="mt-3 ps-3">{props.data["Kelembapan"]} HR</h2>
+
               </Stack>
             </Stack>
           </div>
@@ -152,11 +153,11 @@ const TodayCard = (props) => {
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Air Pressure</div>
-              <Stack direction="horizontal" gap={4}>
+              <Stack direction="horizontal" gap={3}>
                 <div className="icon-forecast">
                   <FaCompressAlt />
                 </div>
-                <h2 className="mt-3">{props.data["Tekanan_Udara"]}</h2>
+                <h4 className="mt-3">{props.data["Tekanan_Udara"]} Pa</h4>
               </Stack>
             </Stack>
           </div>
@@ -181,10 +182,10 @@ const TodayCard = (props) => {
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Rainfall</div>
               <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-5">
+                <div className="icon-forecast pe-3">
                   <FaCloudShowersHeavy />
                 </div>
-                <h2 className="mt-3 ps-5">{props.data["Intensitas_Hujan"]}</h2>
+                <h2 className="mt-3 ps-1">{props.data["Intensitas_Hujan"]} MM</h2>
               </Stack>
             </Stack>
           </div>
@@ -197,7 +198,7 @@ const TodayCard = (props) => {
                 <div className="icon-forecast pe-5">
                   <FaRegSun />
                 </div>
-                <h2 className="mt-3 ps-5">{props.data["Intensitas_UV"]}</h2>
+                <h2 className="mt-3 ps-1">{props.data["Intensitas_UV"]} nm</h2>
               </Stack>
             </Stack>
           </div>
