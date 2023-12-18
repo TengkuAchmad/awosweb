@@ -52,6 +52,17 @@
     color: white !important;
 }
 
+.card-2 { 
+    width: 100%;
+    height: fit-content;
+    background-color: #6d6d6d;
+    border: none;
+    padding: 25px;
+    border-radius: 30px;
+    filter: drop-shadow(1px 1px 7px rgb(17, 17, 17)) !important;
+    color: white !important;
+}
+
 .card-darker {
     width: 100%;
     height: fit-content;

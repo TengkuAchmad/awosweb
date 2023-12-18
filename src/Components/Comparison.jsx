@@ -39,7 +39,7 @@ const Comparison = (props) => {
   };
 
   return (
-    <div className="card mt-3">
+    <div className="card-2 mt-3">
       <h5>
         <FaRocket /> Open Weather Map
       </h5>
