@@ -15,40 +15,49 @@ import {
 } from "react-icons/fa";
 
 const Comparison = (props) => {
+  const getArahAngin = (data) => {
+    switch (data) {
+      case "N":
+        return "UTARA";
+      case "NE":
+        return "TIMUR LAUT";
+      case "E":
+        return "TIMUR";
+      case "SE":
+        return "TENGGARA";
+      case "S":
+        return "SELATAN";
+      case "SW":
+        return "BARAT DAYA";
+      case "W":
+        return "BARAT";
+      case "NW":
+        return "BARAT LAUT";
+      default:
+        return data;
+    }
+  };
+
   return (
     <div className="card mt-3">
       <h5>
         <FaRocket /> Open Weather Map
       </h5>
-        <Row>
-        <Col xs={4} className="p-2">
+      <Row>
+        <Col xs={6} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Humidity</div>
               <Stack direction="horizontal" gap={3}>
-                <div className="icon-forecast pe-5">
+                <div className="icon-forecast pe-2">
                   <FaTint />
                 </div>
-                <h2 className="mt-3 ps-3">{props.data["humidity"]} HR</h2>
+                <h2 className="mt-3 ps-0">{props.data["humidity"]} HR</h2>
               </Stack>
             </Stack>
           </div>
         </Col>
-        <Col xs={4} className="p-2">
-          <div className="card-darker">
-            <Stack direction="vertical" gap={4}>
-              <div className="font-title-grey">Light Intensity</div>
-              <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-5">
-                  <FaRegLightbulb />
-                </div>
-                {/* <h2 className="mt-3 ps-5">{props.data["Intensitas_Cahaya"]}</h2> */}
-                <h2 className="mt-3 ps-5">0</h2>
-              </Stack>
-            </Stack>
-          </div>
-        </Col>
-        <Col xs={4} className="p-2">
+        <Col xs={6} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Air Pressure</div>
@@ -63,42 +72,28 @@ const Comparison = (props) => {
         </Col>
       </Row>
       <Row>
-        <Col xs={4} className="p-2">
+        <Col xs={6} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Wind Wave Direction</div>
-              <Stack direction="horizontal" gap={5}>
+              <Stack direction="horizontal" gap={3}>
                 <div className="icon-forecast pe-3">
                   <FaRegCompass />
                 </div>
-                <h2 className="mt-3">{props.data["wind_dir"]}</h2>
+                <h2 className="mt-3">{getArahAngin(props.data["wind_dir"])}</h2>
               </Stack>
             </Stack>
           </div>
         </Col>
-        <Col xs={4} className="p-2">
-          <div className="card-darker">
-            <Stack direction="vertical" gap={4}>
-              <div className="font-title-grey">Rainfall</div>
-              <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-3">
-                  <FaCloudShowersHeavy />
-                </div>
-                <h2 className="mt-3 ps-1">0 MM</h2>
-                {/* <h2 className="mt-3 ps-5">{props.data["Intensitas_Hujan"]}</h2> */}
-              </Stack>
-            </Stack>
-          </div>
-        </Col>
-        <Col xs={4} className="p-2">
+        <Col xs={6} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">UV A / UV B</div>
-              <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-5">
+              <Stack direction="horizontal" gap={4}>
+                <div className="icon-forecast pe-2">
                   <FaRegSun />
                 </div>
-                <h2 className="mt-3 ps-1">{props.data["uv"]} nm</h2>
+                <h2 className="mt-3 ps-0">{props.data["uv"]} nm</h2>
               </Stack>
             </Stack>
           </div>
