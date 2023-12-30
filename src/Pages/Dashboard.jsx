@@ -11,64 +11,61 @@ import TodayCard from "../Components/TodayCard";
 import WeatherCard from "../Components/WeatherCard";
 import DelayCard from "../Components/DelayCard";
 import Comparison from "../Components/Comparison";
+import Chart from "../Components/Charts/Chart";
+
+// REQUEST IMPORT
+import { getDataSensor } from "../../api/request";
+
+// CONTEXT IMPORT
+import { useData } from "../DataContext";
 
 const Dashboard = () => {
-  const [dataAPI, setDataAPI] = useState([]);
-  const [dataAPI2, setDataAPI2] = useState([]);
+  const { setResponse } = useData();
+  const [isLoading, setIsLoading] = useState(true);
 
-  // GET DATA FROM API
-  const fetchDataAPI = () => {
-    axios
-      .get("https://serverawos.pythonanywhere.com/DataSensor")
-      .then((response) => {
-        setDataAPI(response.data[0]);
-      })
-      .catch((error) => {
-        console.error("Error :", error);
-      });
+  const fetchDataSensor = async () => {
+    try {
+      const response = await getDataSensor();
+      setResponse(response.data);
+      console.log(response);
+    } catch (error) {
+      console.error("Error on request :", error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const fetchDataAPI2 = () => {
-    axios
-      .get("https://api.weatherapi.com/v1/current.json?key=aefb5c4abd60414c94b170426231412&q=Bandung&aqi=yes")
-      .then((response) => {
-        console.log(response.data);
-        setDataAPI2(response.data.current);
-      })
-      .catch((error) => {
-        console.error("Error :", error);
-      });
-  }
-
   useEffect(() => {
-    fetchDataAPI();
-    fetchDataAPI2();
+    fetchDataSensor();
     const interval = setInterval(() => {
-      fetchDataAPI();
-      fetchDataAPI2();
+      fetchDataSensor();
     }, 60000);
     return () => {
       clearInterval(interval);
     };
   }, []);
 
+  if (isLoading) {
+    return <></>
+  }
 
   return (
     <>
       <section id="body">
-        <Header fetchDataAPI={fetchDataAPI} />
+        <Header fetchDataSensor={fetchDataSensor} />
         <Row>
           <Col xs={3}>
-            <NowCard data={dataAPI} />
+            <NowCard />
             <h5 className="mt-4 mb-4">Lokasi Gateway</h5>
-            <LocationCard />
+            <LocationCard node="gateway"/>
             <h5 className="mt-4 mb-4">Lokasi Node Sensor</h5>
-            <LocationCard />
-            <DelayCard data={dataAPI} />
+            <LocationCard node="aws"/>
+            <DelayCard  />
           </Col>
           <Col xs={9} className="ps-4">
-            <TodayCard data={dataAPI} />
-            <Comparison data={dataAPI2} />
+            <Chart />
+            <TodayCard/>
+            <Comparison />
             <h5 className="mt-4 mb-4">Today at</h5>
             <WeatherCard />
           </Col>

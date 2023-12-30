@@ -5,7 +5,7 @@ import { FaRedo } from "react-icons/fa";
 import { format } from "date-fns";
 import { utcToZonedTime } from "date-fns-tz";
 
-const BtnLocation = ({ fetchDataAPI }) => {
+const BtnLocation = ({ fetchDataSensor }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [isLoading, setIsLoading] = useState(false);
 
@@ -26,7 +26,7 @@ const BtnLocation = ({ fetchDataAPI }) => {
 
   const handleSync = () => {
     setIsLoading(true);
-    fetchDataAPI();
+    fetchDataSensor();
     setTimeout(() => setIsLoading(false), 1000);
   };
 

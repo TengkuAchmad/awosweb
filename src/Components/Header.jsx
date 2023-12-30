@@ -6,7 +6,7 @@ import { Row, Col, Button } from "react-bootstrap";
 import Icon from "../assets/Icon.png";
 import BtnLocation from "./BtnLocation";
 
-const Header = ({fetchDataAPI}) => {
+const Header = ({fetchDataSensor}) => {
   return (
     <>
       <Row className="mb-4">
@@ -14,7 +14,7 @@ const Header = ({fetchDataAPI}) => {
             <img src={Icon} alt="Brand" width={175}/>
         </Col>
         <Col xs={2} className="">
-            <BtnLocation fetchDataAPI={fetchDataAPI}/>
+            <BtnLocation fetchDataSensor={fetchDataSensor}/>
         </Col>
       </Row>
     </>
