@@ -19,6 +19,7 @@ const NowCard = () => {
   const latitude = parseFloat(responseData["Latitude_AWS"]);
   const longitude = parseFloat(responseData["Longitude_AWS"]);
 
+
   // FETCH CITY NAME
   const fetchCityName = async (latitude, longitude) => {
     const response = await getCityName(latitude, longitude);

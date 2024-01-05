@@ -19,6 +19,11 @@ import { useData } from "../DataContext";
 const TodayCard = () => {
   const { responseData } = useData();
 
+  const dataLux = responseData.LightIntensity_DW;
+  const intValue = parseInt(dataLux, 10);
+  const dataLuxReady = intValue / 10;
+
+
   return (
     <div className="card">
       <h5>
@@ -64,11 +69,11 @@ const TodayCard = () => {
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Humidity</div>
-              <Stack direction="horizontal" gap={4}>
-                <div className="icon-forecast pe-5">
+              <Stack direction="horizontal" gap={3}>
+                <div className="icon-forecast pe-0">
                   <FaTint />
                 </div>
-                <h2 className="mt-3 ps-3">{responseData["Humidity_DW"]} RH</h2>
+                <h2 className="mt-3 ps-3">{responseData["Humidity_DW"]}%RH</h2>
               </Stack>
             </Stack>
           </div>
@@ -78,11 +83,11 @@ const TodayCard = () => {
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Light Intensity</div>
               <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-5">
+                <div className="icon-forecast">
                   <FaRegLightbulb />
                 </div>
-                <h2 className="mt-3 ps-1">
-                  {responseData["LightIntensity_DW"]} Lux
+                <h2 className="mt-3">
+                  {dataLuxReady} Lux
                 </h2>
               </Stack>
             </Stack>
@@ -92,11 +97,11 @@ const TodayCard = () => {
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Air Pressure</div>
-              <Stack direction="horizontal" gap={5}>
+              <Stack direction="horizontal" gap={4}>
                 <div className="icon-forecast">
                   <FaCompressAlt />
                 </div>
-                <h4 className="mt-3">{responseData["AirPressure_DW"]} Pa</h4>
+                <h2 className="mt-3">{responseData["AirPressure_DW"]} hPa</h2>
               </Stack>
             </Stack>
           </div>
@@ -108,7 +113,7 @@ const TodayCard = () => {
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Wind Wave Direction</div>
               <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-4">
+                <div className="icon-forecast pe-1">
                   <FaRegCompass />
                 </div>
                 <h2 className="mt-3">{responseData["WindWaveDirection_DW"]}</h2>
@@ -120,11 +125,11 @@ const TodayCard = () => {
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
               <div className="font-title-grey">Rainfall</div>
-              <Stack direction="horizontal" gap={5}>
-                <div className="icon-forecast pe-4">
+              <Stack direction="horizontal" gap={3}>
+                <div className="icon-forecast pe-0">
                   <FaCloudShowersHeavy />
                 </div>
-                <h2 className="mt-3 ps-1">{responseData["Rainfall_DW"]} MM</h2>
+                <h3 className="mt-3 ps-0">{responseData["Rainfall_DW"]} MM/Day</h3>
               </Stack>
             </Stack>
           </div>
@@ -132,13 +137,13 @@ const TodayCard = () => {
         <Col xs={4} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
-              <div className="font-title-grey">UV A / UV B</div>
+              <div className="font-title-grey">UV Index</div>
               <Stack direction="horizontal" gap={4}>
                 <div className="icon-forecast pe-5">
                   <FaRegSun />
                 </div>
-                <h2 className="mt-3 ps-1">
-                  {responseData["UVLightIntensity_DW"]} nm
+                <h2 className="mt-3 ps-5">
+                  {responseData["UVLightIntensity_DW"]}
                 </h2>
               </Stack>
             </Stack>

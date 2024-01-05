@@ -52,10 +52,27 @@ const Comparison = () => {
         return "BARAT";
       case "NW":
         return "BARAT LAUT";
+      case "NNE":
+        return "UTARA TIMUR TIMUR";
+      case "ENE":
+        return "TIMUR TIMUR LAUT";
+      case "ESE":
+        return "TIMUR SELATAN TIMUR";
+      case "SSE":
+        return "SELATAN TIMUR SELATAN";
+      case "SSW":
+        return "SELATAN BARAT SELATAN";
+      case "WSW":
+        return "BARAT SELATAN BARAT";
+      case "WNW":
+        return "BARAT UTARA BARAT";
+      case "NNW":
+        return "UTARA BARAT UTARA";
       default:
         return data;
     }
   };
+  
 
   return (
     <div className="card-2 mt-3">
@@ -63,6 +80,19 @@ const Comparison = () => {
         <FaRocket className="me-2"/> Open Weather Data Sensor
       </h5>
       <Row className="mt-3">
+      <Col xs={6} className="p-2">
+          <div className="card-darker">
+            <Stack direction="vertical" gap={4}>
+              <div className="font-title-grey">Temperature</div>
+              <Stack direction="horizontal" gap={4}>
+                <div className="icon-forecast pe-2">
+                  <WiThermometer />
+                </div>
+                <h2 className="mt-3 ps-0">{sensorData["feelslike_c"]} °C</h2>
+              </Stack>
+            </Stack>
+          </div>
+        </Col>
         <Col xs={6} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
@@ -71,20 +101,7 @@ const Comparison = () => {
                 <div className="icon-forecast pe-2">
                   <FaTint />
                 </div>
-                <h2 className="mt-3 ps-0">{sensorData["humidity"]} RH</h2>
-              </Stack>
-            </Stack>
-          </div>
-        </Col>
-        <Col xs={6} className="p-2">
-          <div className="card-darker">
-            <Stack direction="vertical" gap={4}>
-              <div className="font-title-grey">Air Pressure</div>
-              <Stack direction="horizontal" gap={3}>
-                <div className="icon-forecast">
-                  <FaCompressAlt />
-                </div>
-                <h2 className="mt-3">{sensorData["pressure_mb"]} Pa</h2>
+                <h2 className="mt-3 ps-0">{sensorData["humidity"]} %RH</h2>
               </Stack>
             </Stack>
           </div>
@@ -107,12 +124,12 @@ const Comparison = () => {
         <Col xs={6} className="p-2">
           <div className="card-darker">
             <Stack direction="vertical" gap={4}>
-              <div className="font-title-grey">Temperature</div>
-              <Stack direction="horizontal" gap={4}>
-                <div className="icon-forecast pe-2">
-                  <WiThermometer />
+              <div className="font-title-grey">Air Pressure</div>
+              <Stack direction="horizontal" gap={3}>
+                <div className="icon-forecast">
+                  <FaCompressAlt />
                 </div>
-                <h2 className="mt-3 ps-0">{sensorData["feelslike_c"]} °C</h2>
+                <h2 className="mt-3">{sensorData["pressure_mb"]} Pa</h2>
               </Stack>
             </Stack>
           </div>

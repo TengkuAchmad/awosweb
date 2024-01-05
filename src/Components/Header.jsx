@@ -3,7 +3,7 @@ import { React } from "react";
 import { Row, Col, Button } from "react-bootstrap";
 
 // ASSETS IMPORT
-import Icon from "../assets/Icon.png";
+import Icon from "../assets/awos2.png";
 import BtnLocation from "./BtnLocation";
 
 const Header = ({fetchDataSensor}) => {
@@ -11,9 +11,9 @@ const Header = ({fetchDataSensor}) => {
     <>
       <Row className="mb-4">
         <Col xs={10}>
-            <img src={Icon} alt="Brand" width={175}/>
+            <img src={Icon} alt="Brand" width={190}/>
         </Col>
-        <Col xs={2} className="">
+        <Col xs={2} className="justify-content-center align-self-center">
             <BtnLocation fetchDataSensor={fetchDataSensor}/>
         </Col>
       </Row>

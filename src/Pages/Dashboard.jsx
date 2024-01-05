@@ -1,6 +1,6 @@
 // LIBRARY IMPORT
 import { ReactComponentElement, useEffect, useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row, Col, Stack } from "react-bootstrap";
 import axios from "axios";
 
 // COMPONENTS IMPORT
@@ -18,6 +18,8 @@ import { getDataSensor } from "../../api/request";
 
 // CONTEXT IMPORT
 import { useData } from "../DataContext";
+
+import { IoStatsChart } from "react-icons/io5";
 
 const Dashboard = () => {
   const { setResponse } = useData();
@@ -46,7 +48,7 @@ const Dashboard = () => {
   }, []);
 
   if (isLoading) {
-    return <></>
+    return <></>;
   }
 
   return (
@@ -57,17 +59,24 @@ const Dashboard = () => {
           <Col xs={3}>
             <NowCard />
             <h5 className="mt-4 mb-4">Lokasi Gateway</h5>
-            <LocationCard node="gateway"/>
+            <LocationCard node="gateway" />
             <h5 className="mt-4 mb-4">Lokasi Node Sensor</h5>
-            <LocationCard node="aws"/>
-            <DelayCard  />
+            <LocationCard node="aws" />
+            <DelayCard />
           </Col>
           <Col xs={9} className="ps-4">
-            <Chart />
-            <TodayCard/>
+            <TodayCard />
             <Comparison />
-            <h5 className="mt-4 mb-4">Today at</h5>
-            <WeatherCard />
+          </Col>
+        </Row>
+        <Row className="line-border mt-5">
+          <Col xs={6} className="mt-3">
+            <h6><IoStatsChart /> Agriculture's Statistic</h6>
+            <Chart context="agriculture" />
+          </Col>
+          <Col xs={6} className="mt-3">
+            <h6><IoStatsChart /> Weather's Statistic</h6>
+            <Chart context="weather" />
           </Col>
         </Row>
       </section>

@@ -52,6 +52,18 @@
     color: white !important;
 }
 
+.card-body { 
+    width: 100%;
+    height: fit-content;
+    background-color:  #131313;
+    border: none;
+    padding: 25px;
+    border-radius: 30px;
+    border: 1px solid #242424;
+    filter: drop-shadow(1px 1px 7px rgb(17, 17, 17)) !important;
+    color: white !important;
+}
+
 .card-2 { 
     width: 100%;
     height: fit-content;
@@ -163,4 +175,8 @@
 .border-side{
     width: auto;
     border-right: 1px solid #242424;
+}
+
+.line-border{
+    border-top: 2px solid #6d6d6d;
 }
